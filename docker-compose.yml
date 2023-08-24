@@ -1,4 +1,4 @@
-version: "3.1"
+version: "3.5"
 
 services:
 
@@ -11,7 +11,14 @@ services:
       - db-data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
+    networks:
+      - backend
 
 volumes:
   db-data:
     driver: local
+
+networks:
+  backend:
+    name: kitchen_backend
+    driver: bridge
